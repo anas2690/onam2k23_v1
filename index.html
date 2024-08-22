@@ -27,7 +27,7 @@
                         <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Gallery</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        
                     </ul>
                 </div>
 
@@ -162,14 +162,14 @@
         </div>
         
         <div class="button-container">
-            <a href="https://forms.gle/vNqXYbYqKLNE36gQA" class="button">To Register</a>
+            <a href="#" class="button">To Register</a>
         </div>
     </div>
 </section>
 
 <!--===== GALLERY =====-->
 <section class="work section" id="work">
-    <h2 class="section-title">Gallery</h2>
+<h2 class="section-title"><a href="gallery.html" style="text-decoration:none; color:inherit;">Gallery</a></h2>
 
     <div class="work__container bd-grid" id="shuffled-gallery">
         <!-- Images will be shuffled and inserted here using JavaScript -->
@@ -178,7 +178,7 @@
 
 <script>
     // Array of image filenames (assuming you have img1.jpg to img20.jpg)
-    const imageFilenames = Array.from({ length: 59 }, (_, index) => `img${index + 1}.jpg`);
+    const imageFilenames = Array.from({ length: 137 }, (_, index) => `img${index + 1}.jpg`);
 
     // Function to shuffle an array
     function shuffleArray(array) {
@@ -195,44 +195,34 @@
 
     // Display 6 shuffled images at a time
     let startIndex = 0;
-    function displayImages() {
-        galleryContainer.innerHTML = ''; // Clear previous images
-        const endIndex = startIndex + 6 > shuffledImages.length ? shuffledImages.length : startIndex + 6;
+function displayImages() {
+    galleryContainer.innerHTML = ''; // Clear previous images
+    const endIndex = startIndex + 6 > shuffledImages.length ? shuffledImages.length : startIndex + 6;
 
-        for (let i = startIndex; i < endIndex; i++) {
-            const imageLink = document.createElement('a');
-            imageLink.className = 'work__img';
-            imageLink.href = ''; // Add your image link here
+    for (let i = startIndex; i < endIndex; i++) {
+        const imageLink = document.createElement('a');
+        imageLink.className = 'work__img';
+        imageLink.href = 'gallery.html'; // Redirect to gallery.html
 
-            const image = document.createElement('img');
-            image.src = `assets/img/${shuffledImages[i]}`;
-            image.alt = '';
+        const image = document.createElement('img');
+        image.src = `assets/img/${shuffledImages[i]}`;
+        image.alt = '';
 
-            imageLink.appendChild(image);
-            galleryContainer.appendChild(imageLink);
-        }
-
-        startIndex = (startIndex + 6) % shuffledImages.length; // Cycle through the images
+        imageLink.appendChild(image);
+        galleryContainer.appendChild(imageLink);
     }
+
+    startIndex = (startIndex + 6) % shuffledImages.length; // Cycle through the images
+}
+
+
 
     displayImages(); // Initial display
 </script>
 
 
         </main>
-       <section class="contact section" id="contact">
-            <h2 class="section-title">Send Feedback</h2>
 
-            <div class="contact__container bd-grid">
-                <form action="https://formsubmit.co/bc287b8956eb04a40af0ad4ee4fbad29"
-                      class="contact__form"
-                      method="POST">
-                    <input type="text" name="name" placeholder="Name" class="contact__input">
-                    <textarea name="message" placeholder="Your Message" cols="30" rows="10" class="contact__input"></textarea>
-                    <input type="submit" value="Send" class="contact__button button">
-                </form>
-            </div>
-        </section>
         <!--===== FOOTER =====-->
         <footer class="footer">
             <p class="footer__title">ONAM@IISERM</p>
